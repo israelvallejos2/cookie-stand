@@ -14,8 +14,10 @@ function Store(name, minCustomer, maxCustomer, avg) {
 
     this.CookieSalesPerHour = function () {
         for (let i = 0; i < hours.length; i++) {
-            let customersThisHour = this.getRandomCustomers();
-            let totalCookiesSoldThisHour = Math.ceil(customersThisHour * this.avg);
+            let object = {}
+            object.hour = hours[i];
+            object.customersThisHour = this.getRandomCustomers();
+            object.totalCookiesSoldThisHour = Math.ceil(object.customersThisHour * this.avg);
             this.cookiesSoldEachHourArray.push(totalCookiesSoldThisHour);
             this.totalcount = this.totalcount + totalCookiesSoldThisHour;
             console.log(hours[i], this.cookiesSoldEachHourArray[i]);
